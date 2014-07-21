@@ -1,0 +1,30 @@
+<html ng-app>
+<head>
+    <script src="http://code.angularjs.org/angular-1.0.0rc3.min.js"></script>
+    <script type="text/javascript" src="WEB-INF/angularStuff.js"></script>
+    <link rel="stylesheet" href="WEB-INF/todo.css">
+    <title></title>
+</head>
+<body>
+Hello
+<div ng-controller="TodoCtrl">
+    {{getTotalTodos()}}
+    <ul>
+        <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+    </ul>
+    <form class"form-horizontal">
+        <input type="text" ng-model="formTodoText" ng-model-instant>
+    <button ng-click="addTodo()">Add</button>
+    </form>
+
+    <button ng-click="clearCompleted()">Remove completed</button>
+
+    <div class="container" ng-app="app">
+        <div ui-view></div>
+    </div>
+</div>
+</body>
+</html>
